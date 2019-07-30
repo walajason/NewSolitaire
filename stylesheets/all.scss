@@ -1,0 +1,213 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+$midnight: #E53935;
+$clouds: #ecf0f1;
+// General
+.material-icons {
+    position: relative;
+    top: 50px;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 3.6rem;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    color: lightgray;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.mainbody {
+    width: 1280px;
+    height: 800px;
+    border: 1px solid rgb(180, 178, 180);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #C3D8A6;
+    background-image: url("/image/bg-img-main.svg");
+    text-align: center;
+}
+
+.startbtn {
+    position: absolute;
+    width: 173px;
+    height: 45px;
+    top: 643px;
+    left: 552px;
+    font-size: 24px;
+    background-color: #FFFFFF;
+}
+
+.timershow {
+    position: absolute;
+    width: 266px;
+    height: 62px;
+    top: 679px;
+    left: 507px;
+    // font-style: Noto Sans TC;
+    font-weight: lighter;
+    font-size: 42px;
+    color: #FFFFFF;
+}
+
+.timershow:hover {
+    cursor: pointer;
+}
+
+.scoreshow {
+    position: absolute;
+    display: inline-block;
+    width: 123px;
+    height: 38px;
+    top: 736px;
+    left: 581px;
+    // font-style: Noto Sans TC;
+    font-weight: lighter;
+    font-size: 26px;
+    color: #FFFFFF;
+}
+
+.bgright {
+    position: absolute;
+    width: 540px;
+    /*height: 272px;*/
+    top: 528px;
+    left: 560px;
+    background-color: #C3D8A6;
+    border-radius: 540px 540px 0px 0px;
+    height: 270px;
+}
+
+.replay {
+    position: absolute;
+    left: 1055px;
+    top: 48px;
+    width: 25px;
+    height: 23px;
+    color: #82D5E8;
+    margin: 0px;
+    padding: 0px;
+}
+
+.replay:hover {
+    cursor: pointer;
+}
+
+.block1 {
+    position: absolute;
+    width: 494px;
+    height: 140px;
+    top: 155px;
+    left: 58px;
+    // background-color: green;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.block1>div {
+    width: 100px;
+    height: 140px;
+    background-color: #F7F6F5;
+    /*background-color: #F7F6F5;*/
+    display: inline-block;
+    margin: 0px 10px;
+    padding: 0px;
+}
+//
+.bk2 {
+    position: absolute;
+    //display: inline-block;
+    background-color: #F7F6F5;
+    width: 100px;
+    height: 140px;
+
+    padding: 0px;
+}
+
+.bk2>img {
+    position: relative;
+    top: 35px;
+    width: 70px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.block3 {
+    position: absolute;
+    width: 494px;
+    height: 140px;
+    top: 325px;
+    left: 58px;
+    // background-color: green;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.block3>div {
+    width: 100px;
+    height: 140px;
+    background-color: #F7F6F5;
+    /*background-color: #F7F6F5;*/
+    display: inline-block;
+    margin: 0px 10px;
+    padding: 0px;
+}
+
+.block4 {
+    position: absolute;
+    width: 494px;
+    height: 140px;
+    top: 325px;
+    left: 729px;
+    // background-color: green;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.block4>div {
+    width: 100px;
+    height: 140px;
+    background-color: #F7F6F5;
+    /*background-color: #F7F6F5;*/
+    display: inline-block;
+    margin: 0px 10px;
+    padding: 0px;
+}
+
+.card {
+    position: absolute;
+    width: 100px;
+    height: 140px;
+    display: block;
+    margin: 0px 10px;
+    padding: 0px;
+    /*animation-name: cardmove;
+    animation-duration: 60s;*/
+}
+
+@keyframes carddmove {
+    from {
+        left: 0px;
+    }
+    to {
+        left: 20px;
+    }
+}

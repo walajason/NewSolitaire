@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1280 617" style="enable-background:new 0 0 1280 617;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#Path_147_1_);}
+	.st1{fill:url(#Path_148_1_);}
+</style>
+<linearGradient id="Path_147_1_" gradientUnits="userSpaceOnUse" x1="50.3244" y1="605.8986" x2="50.3184" y2="605.1445" gradientTransform="matrix(1279.9998 0 0 -593.1299 -63770.9883 359455.75)">
+	<stop  offset="0" style="stop-color:#E4E8C0"/>
+	<stop  offset="1" style="stop-color:#CCDB8E"/>
+</linearGradient>
+<path id="Path_147" class="st0" d="M1279.9,617.2c0,0,19.7-97.6-395.5-375.3S0,31.1,0,31.1v586H1279.9z"/>
+<linearGradient id="Path_148_1_" gradientUnits="userSpaceOnUse" x1="50.3211" y1="605.9919" x2="50.3211" y2="604.9919" gradientTransform="matrix(1280 0 0 -617.6698 -63771 374302.4062)">
+	<stop  offset="0" style="stop-color:#C3D8A6"/>
+	<stop  offset="1" style="stop-color:#9DBA74"/>
+</linearGradient>
+<path id="Path_148" class="st1" d="M0,617.2c0,0,243.1-302.9,597.3-466.8S1280-0.2,1280-0.2v617.4H0z"/>
+</svg>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./stylesheets/all.scss">
+    <!-- <link rel="stylesheet" href="./../reset.css"> -->
+    <!-- icon 字型連結 -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheets/all.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>新接龍</title>
+    <script type="text/javascript">
+        var text = '{"poke": [' +
+            '{"kind": "s","no":"01"},' +
+            '{"kind": "s","no":"02"},' +
+            '{"kind": "s","no":"03"},' +
+            '{"kind": "s","no":"04"},' +
+            '{"kind": "s","no":"05"},' +
+            '{"kind": "s","no":"06"},' +
+            '{"kind": "s","no":"07"},' +
+            '{"kind": "s","no":"08"},' +
+            '{"kind": "s","no":"09"},' +
+            '{"kind": "s","no":"10"},' +
+            '{"kind": "s","no":"11"},' +
+            '{"kind": "s","no":"12"},' +
+            '{"kind": "s","no":"13"},' +
+            '{"kind": "h","no":"14"},' +
+            '{"kind": "h","no":"15"},' +
+            '{"kind": "h","no":"16"},' +
+            '{"kind": "h","no":"17"},' +
+            '{"kind": "h","no":"18"},' +
+            '{"kind": "h","no":"19"},' +
+            '{"kind": "h","no":"20"},' +
+            '{"kind": "h","no":"21"},' +
+            '{"kind": "h","no":"22"},' +
+            '{"kind": "h","no":"23"},' +
+            '{"kind": "h","no":"24"},' +
+            '{"kind": "h","no":"25"},' +
+            '{"kind": "h","no":"26"},' +
+            '{"kind": "d","no":"27"},' +
+            '{"kind": "d","no":"28"},' +
+            '{"kind": "d","no":"29"},' +
+            '{"kind": "d","no":"30"},' +
+            '{"kind": "d","no":"31"},' +
+            '{"kind": "d","no":"32"},' +
+            '{"kind": "d","no":"33"},' +
+            '{"kind": "d","no":"34"},' +
+            '{"kind": "d","no":"35"},' +
+            '{"kind": "d","no":"36"},' +
+            '{"kind": "d","no":"37"},' +
+            '{"kind": "d","no":"38"},' +
+            '{"kind": "d","no":"38"},' +
+            '{"kind": "c","no":"40"},' +
+            '{"kind": "c","no":"41"},' +
+            '{"kind": "c","no":"42"},' +
+            '{"kind": "c","no":"43"},' +
+            '{"kind": "c","no":"44"},' +
+            '{"kind": "c","no":"45"},' +
+            '{"kind": "c","no":"46"},' +
+            '{"kind": "c","no":"47"},' +
+            '{"kind": "c","no":"48"},' +
+            '{"kind": "c","no":"49"},' +
+            '{"kind": "c","no":"50"},' +
+            '{"kind": "c","no":"51"},' +
+            '{"kind": "c","no":"52"}]}';
+        var card = JSON.parse(text);
+        //document.getElementById("card").innerHTML = card.poke[0].kind + card.poke[0].no
+
+        var mcountdown;
+        var secs = 0;
+
+        function timeCount() {
+            var h = Math.floor(secs / 3600);
+            var m = Math.floor((secs - (h * 3600)) / 60);
+            var s = parseInt(secs - (h * 3600) - (m * 60));
+            document.getElementById('timershow').innerHTML = 'Time: ' + paddingLeft(h, 2) + ':' + paddingLeft(m, 2) + ':' + paddingLeft(s, 2);
+            secs = secs + 1;
+            mcountdown = setTimeout('timeCount()', 1000);
+        }
+
+
+        function show_clock() {
+            var NowDate = new Date();
+            var h = NowDate.getHours(NowDate);
+            var m = NowDate.getMinutes(NowDate);
+            document.getElementById('timer').innerHTML = paddingLeft(h, 2) + ':' + paddingLeft(m, 2);
+            mclock = settimeout('show_clock()', 1000);
+        }
+
+        function paddingLeft(mstr, lenght) {
+            if (mstr < 10) {
+                if (mstr == 0) { //時間為0時 length 無法辦別出來
+                    return "00";
+                } else {
+                    return "0" + mstr;
+                }
+            } else {
+                return mstr;
+            }
+        }
+        // 產生不重複的亂數
+        function getRandomArray(minNum, maxNum, n) { //隨機產生不重覆的n個數字
+            var rdmArray = [n]; //儲存產生的陣列
+            var i = 0;
+            do {
+                var rdm = 0; //暫存的亂數
+                do {
+                    var exist = false; //此亂數是否已存在
+                    // rdm = getRandom(minNum, maxNum);    //取得亂數
+                    rdm = Math.floor((Math.random() * 52));
+                    //檢查亂數是否存在於陣列中，若存在則繼續回圈
+                    if (rdm > maxNum || rdmArray.indexOf(rdm) != -1) exist = true;
+                    /*if (i > maxNum) {
+                        exist = false;
+                        n = 100;
+                    }*/
+                } while (exist); //產生沒出現過的亂數時離開迴圈
+                rdmArray[i] = rdm;
+                i = i + 1;
+            } while (i < n)
+            return rdmArray;
+        }
+
+        //顯示單張樸克牌
+        /*   function showcard(no) {
+              var kind = card.kind(no);
+              var number = card.no(no);
+              var img = kind + number;
+          } */
+        // var ftop1 = 325;
+        // var fleft1 = 58;
+        //發牌, 產生<img>
+        function licensing(fid) {
+            var cardno = getRandomArray(0, 51, 52);
+            var ftop = 325;
+            var i = 0;
+            timeCount();
+            //top: 325px;  left: 58 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 182 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 306 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 430 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 729 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 853 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 977 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 1101 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 1101 px;直向差30px, 直接發13張牌
+            for (i = 0; i < 7; i++) {
+                //rdmno = cardno[i];
+                // console.log(card.poke[rdmno].kind + card.poke[rdmno].no + ".gif");
+                addElementImg(fid, fid + '31', ftop, '58', "./image/" + card.poke[cardno[i]].no + ".gif");
+                addElementImg(fid, fid + '32', ftop, '182', "./image/" + card.poke[cardno[i + 1]].no + ".gif");
+                addElementImg(fid, fid + '33', ftop, '306', "./image/" + card.poke[cardno[i + 2]].no + ".gif");
+                addElementImg(fid, fid + '34', ftop, '430', "./image/" + card.poke[cardno[i + 3]].no + ".gif");
+                addElementImg(fid, fid + '41', ftop, '729', "./image/" + card.poke[cardno[i + 4]].no + ".gif");
+                addElementImg(fid, fid + '42', ftop, '853', "./image/" + card.poke[cardno[i + 5]].no + ".gif");
+                addElementImg(fid, fid + '43', ftop, '977', "./image/" + card.poke[cardno[i + 7]].no + ".gif");
+                addElementImg(fid, fid + '44', ftop, '1101', "./image/" + card.poke[cardno[i + 8]].no + ".gif");
+                ftop = ftop + 30;
+            }
+            addElementImg(fid, fid + '31', ftop, '58', "./image/" + card.poke[cardno[i]].no + ".gif");
+            addElementImg(fid, fid + '32', ftop, '182', "./image/" + card.poke[cardno[i + 1]].no + ".gif");
+            addElementImg(fid, fid + '43', ftop, '977', "./image/" + card.poke[cardno[i + 2]].no + ".gif");
+            addElementImg(fid, fid + '44', ftop, '1101', "./image/" + card.poke[cardno[i + 3]].no + ".gif");
+
+        }
+        //input:id,class_name,top,left,圖檔
+        function addElementImg(objid, idno, ptop, pleft, imgsrc) {
+            var node = document.getElementById(objid);
+            var img = document.createElement("img");　　　　 //設定 img 屬性，如 id
+            img.setAttribute("class", 'card');
+            img.setAttribute("style", 'top:' + ptop + 'px; left:' + pleft + 'px;');
+            //設定 img 屬性，如 id
+            img.setAttribute("id", idno);
+            //設定 img 圖片地址
+            img.src = imgsrc;
+            node.appendChild(img);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="mainbody" id="cards">
+        <i class="material-icons replay" onclick="timeCount()">replay</i>
+        <div style="position:absolute;width:35px;height:22px;top:100px;left: 1065px;color:#58554F;font-size:12px;text-align: left;margin:0px;font-style: Noto Sans TC;margin:0px;padding:0px;">
+            重玩</div>
+        <div class="block1">
+            <div class="tmp1"></div>
+            <div class="tmp2"></div>
+            <div class="tmp3"></div>
+            <div class="tmp4"></div>
+        </div>
+        <div class="block2">
+            <div class="strspade"><i class="material-icons">favorite</i></div>
+            <div class="strhearts "><i class="material-icons">favorite</i></div>
+            <div class="streclubs"><i class="material-icons">favorite</i></div>
+            <div class="strediamonds"><i class="material-icons">favorite</i></div>
+        </div>
+        <div class="block3">
+            <!--使用js產生<img, 無法使用下列div的父節點,來產生,無法定位,
+                必須利用body>div來產生, 這樣定位才會準確, 原因????-->
+            <div id="31"></div>
+            <div id="32"></div>
+            <div id="33"></div>
+            <div id="34"></div>
+        </div>
+        <div class="block4">
+            <div class="41"></div>
+            <div class="42"></div>
+            <div class="43"></div>
+            <div class="44"></div>
+        </div>
+        <input class="startbtn" type="button" value="開始" onclick="licensing('cards')">
+        <div class="timershow" id="timershow">Timer:00:00:00</div>
+        <div class="scoreshow">Score:02</div>
+
+    </div>
+</body>
+
+</html>
