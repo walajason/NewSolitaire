@@ -10595,7 +10595,7 @@ a.text-dark:hover, a.text-dark:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #C3D8A6;
-  background-image: url("/image/bg-img-main.svg");
+  background-image: url("./image/bg-img-main.svg");
   text-align: center;
 }
 
