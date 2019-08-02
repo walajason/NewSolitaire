@@ -10596,7 +10596,7 @@ a.text-dark:hover, a.text-dark:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #C3D8A6;
-  background-image: url("./image/bg-img-main.svg");
+  background-image: url("./../image/bg-img-main.svg");
   text-align: center;
 }
 
@@ -10621,7 +10621,7 @@ a.text-dark:hover, a.text-dark:focus {
   color: #FFFFFF;
 }
 
-.timershow:hover {
+.startbtn:hover {
   cursor: pointer;
 }
 
@@ -10648,24 +10648,11 @@ a.text-dark:hover, a.text-dark:focus {
   height: 270px;
 }
 
-.block1 {
+.bk1 {
   position: absolute;
-  width: 494px;
-  height: 140px;
-  top: 155px;
-  left: 58px;
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-}
-
-.block1 > div {
+  background-color: #F7F6F5;
   width: 100px;
   height: 140px;
-  background-color: #F7F6F5;
-  /*background-color: #F7F6F5;*/
-  display: inline-block;
-  margin: 0px 10px;
   padding: 0px;
 }
 
@@ -10685,26 +10672,15 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 0px;
 }
 
-.block3 {
+.bk3 {
   position: absolute;
-  width: 494px;
+  width: 100px;
   height: 140px;
-  top: 325px;
-  left: 58px;
+  background-color: #F7F6F5;
   display: inline-block;
   padding: 0px;
   margin: 0px;
   text-align: center;
-}
-
-.block3 > div {
-  width: 100px;
-  height: 140px;
-  background-color: #F7F6F5;
-  /*background-color: #F7F6F5;*/
-  display: inline-block;
-  margin: 0px 10px;
-  padding: 0px;
 }
 
 .block4 {
@@ -10733,11 +10709,26 @@ a.text-dark:hover, a.text-dark:focus {
   position: absolute;
   width: 100px;
   height: 140px;
-  display: block;
-  margin: 0px 10px;
+  background-color: #F7F6F5;
   padding: 0px;
+  margin: 0px;
   /*animation-name: cardmove;
     animation-duration: 60s;*/
+}
+
+.imgcard {
+  position: absolute;
+  width: 100px;
+  height: 140px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.img {
+  width: 70px;
+  height: 70px;
+  padding: 0px;
+  margin: 0px;
 }
 
 @-webkit-keyframes carddmove {

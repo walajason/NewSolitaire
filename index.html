@@ -131,26 +131,27 @@
                 secs = 0;
             }
             timeCount();
-            licensing('cards');
+            licensing();
         }
         //開始
         function cardStart() {
             if (secs == 0) {
-                licensing('cards')
+                licensing();
             }
             timeCount();
         }
         //發牌, 產生<img>
-        function licensing(fid) {
+        function licensing() {
             var cardno = getRandomArray(0, 51, 52);
-            var ftop = 325;
+            var ftop = 0;
+            //var ftop = 325;
             var i = 0;
             var arrno = 0;
             /*animation-name: cardmove;
                 animation-duration: 60s;
             document.getElementsByClassName("card").animationName = "cardmove";
             document.getElementsByClassName("card").animationDuration = "60S";*/
-            //top: 325px;  left: 58 px;直向差30px, 直接發13張牌
+            //top: 325px;  left: 58px;直向差30px, 直接發13張牌
             //top: 325px;  left: 182 px;直向差30px, 直接發13張牌
             //top: 325px;  left: 306 px;直向差30px, 直接發13張牌
             //top: 325px;  left: 430 px;直向差30px, 直接發13張牌
@@ -162,86 +163,93 @@
             for (i = 0; i < 6; i++) {
                 //rdmno = cardno[i];
                 // console.log(card.poke[rdmno].kind + card.poke[rdmno].no + ".gif");
-                addElementImg(fid, fid + '31', ftop, '58', "./image/" + card.poke[cardno[arrno]].no + ".gif");
-                addElementImg(fid, fid + '32', ftop, '182', "./image/" + card.poke[cardno[arrno + 1]].no + ".gif");
-                addElementImg(fid, fid + '33', ftop, '306', "./image/" + card.poke[cardno[arrno + 2]].no + ".gif");
-                addElementImg(fid, fid + '34', ftop, '430', "./image/" + card.poke[cardno[arrno + 3]].no + ".gif");
-                addElementImg(fid, fid + '41', ftop, '729', "./image/" + card.poke[cardno[arrno + 4]].no + ".gif");
-                addElementImg(fid, fid + '42', ftop, '853', "./image/" + card.poke[cardno[arrno + 5]].no + ".gif");
-                addElementImg(fid, fid + '43', ftop, '977', "./image/" + card.poke[cardno[arrno + 7]].no + ".gif");
-                addElementImg(fid, fid + '44', ftop, '1101', "./image/" + card.poke[cardno[arrno + 8]].no + ".gif");
+                addElementImg("31", card.poke[cardno[arrno]].no, ftop, '0', "./image/" + card.poke[cardno[arrno]].no + ".gif");
+                addElementImg("32", card.poke[cardno[arrno + 1]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 1]].no + ".gif");
+                addElementImg("33", card.poke[cardno[arrno + 2]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 2]].no + ".gif");
+                addElementImg("34", card.poke[cardno[arrno + 3]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 3]].no + ".gif");
+                addElementImg("41", card.poke[cardno[arrno + 4]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 4]].no + ".gif");
+                addElementImg("42", card.poke[cardno[arrno + 5]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 5]].no + ".gif");
+                addElementImg("43", card.poke[cardno[arrno + 6]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 6]].no + ".gif");
+                addElementImg("44", card.poke[cardno[arrno + 7]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 7]].no + ".gif");
                 ftop = ftop + 30;
-                arrno = arrno + 8
+                arrno = arrno + 8;
             }
-            addElementImg(fid, fid + '31', ftop, '58', "./image/" + card.poke[cardno[arrno]].no + ".gif");
-            addElementImg(fid, fid + '32', ftop, '182', "./image/" + card.poke[cardno[arrno + 1]].no + ".gif");
-            addElementImg(fid, fid + '43', ftop, '977', "./image/" + card.poke[cardno[arrno + 2]].no + ".gif");
-            addElementImg(fid, fid + '44', ftop, '1101', "./image/" + card.poke[cardno[arrno + 3]].no + ".gif");
-
+            addElementImg("31", card.poke[cardno[arrno]].no, ftop, '0', "./image/" + card.poke[cardno[arrno]].no + ".gif");
+            addElementImg("32", card.poke[cardno[arrno + 1]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 1]].no + ".gif");
+            addElementImg("43", card.poke[cardno[arrno + 2]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 2]].no + ".gif");
+            addElementImg("44", card.poke[cardno[arrno + 3]].no, ftop, '0', "./image/" + card.poke[cardno[arrno + 3]].no + ".gif");
         }
-        //input:id,class_name,top,left,圖檔
+        //input:,class_name,top,left,圖檔
         function addElementImg(objid, idno, ptop, pleft, imgsrc) {
             var node = document.getElementById(objid);
             var img = document.createElement("img");　　　　 //設定 img 屬性，如 id
-            img.setAttribute("class", 'card');
-            img.setAttribute("style", 'top:' + ptop + 'px; left:' + pleft + 'px;');
+            img.setAttribute("class", 'imgcard');
+            img.setAttribute("style", "top:" + ptop + "px; left:" + pleft + "px;");
             //設定 img 屬性，如 id
-            img.setAttribute("id", idno);
-            //設定 img 圖片地址
+            img.setAttribute("id", 'c' + idno);
+            //設定是否可拖曳
+            img.setAttribute("draggable", "true")
+            img.setAttribute("ondragstart", "Drag(event)")
+                //設定 img 圖片地址
             img.src = imgsrc;
             node.appendChild(img);
+        }
+        //drag and drop
+        function AllowDrop(event) {
+            event.preventDefault();
+        }
+
+        function Drag(event) {
+            event.dataTransfer.setData("text", event.currentTarget.id);
+        }
+
+        function Drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            event.currentTarget.appendChild(document.getElementById(data));
         }
     </script>
 </head>
 
 <body>
     <div class="mainbody" id="cards">
-        <!-- <i class="material-icons replay" onclick="licensing('cards')">replay</i>
-        <div style="position:absolute;width:35px;height:22px;top:100px;left: 1065px;color:#58554F;font-size:12px;text-align: left;margin:0px;font-style: Noto Sans TC;margin:0px;padding:0px;">
-            重玩</div> -->
         <div class="rightKey" style="top: 27px;left: 973px; font-size: 20px;" onclick="replay()">
             <img src="./image/icon 11972.svg" alt="">重玩
         </div>
         <div class="rightKey" style="top: 27px;left: 1040px; font-size: 20px;" onclick="clearTimeout(mtimestart);">
             <img src="./image/icon 15460.svg" alt="">暫停
         </div>
-        <!-- icon 15460.svg  icon 11972.svg-->
-        <div class="block1">
-            <div class="tmp1"></div>
-            <div class="tmp2"></div>
-            <div class="tmp3"></div>
-            <div class="tmp4"></div>
+        <!-- block1  -->
+        <div class="card" id="11" style="top: 155px;  left: 58px;" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="12" style="top: 155px;  left: 182px" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="13" style="top: 155px;  left: 306px;" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="14" style="top: 155px;  left: 430px;" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <!--block2-->
+        <div class="card" id="21" style="top: 155px;left: 739px;" ondrop="Drop(event)" ondragover="AllowDrop(event)">
+            <img style="width: 70px;height: 70px; " src="./image/icon 13999-73.svg" alt=" ">
         </div>
-        <div class="bk2" style="top: 155px;left: 739px;">
-            <img src="./image/icon 13999-73.svg" alt="">
+        <div class="card" id="22" style="top: 155px;left: 864px;" ondrop="Drop(event)" ondragover="AllowDrop(event)">
+            <img style="width: 70px;height: 70px; " src="./image/icon 14002.svg" alt=" ">
         </div>
-        <div class="bk2" style="top: 155px;left: 864px;">
-            <img style=" height: 70px;" src="./image/icon 14002.svg" alt="">
+        <div class="card" id="23" style="top: 155px;left: 989px;" ondrop="Drop(event)" ondragover="AllowDrop(event)">
+        <img style="width: 70px;height: 70px; " src="./image/Group 117-10.svg " alt=" ">
         </div>
-        <div class="bk2" style="top: 155px;left: 989px;">
-            <img style=" height: 70px;" src="./image/Group 117-10.svg" alt="">
+        <div class="card" id="24" style="top: 155px;left: 1114px;" ondrop="Drop(event)" ondragover="AllowDrop(event)">
+            <img style="width: 70px;height: 70px; " src="./image/icon 14017-64.svg" alt=" ">
         </div>
-        <div class="bk2" style="top: 155px;left: 1114px;">
-            <img style=" height: 70px;" src="./image/icon 14017-64.svg" alt="">
-        </div>
-        <div class="block3">
-            <!--使用js產生<img, 無法使用下列div的父節點,來產生,無法定位,
-                必須利用body>div來產生, 這樣定位才會準確, 原因????-->
-            <div id="31"></div>
-            <div id="32"></div>
-            <div id="33"></div>
-            <div id="34"></div>
-        </div>
-        <div class="block4">
-            <div class="41"></div>
-            <div class="42"></div>
-            <div class="43"></div>
-            <div class="44"></div>
-        </div>
-        <input class="startbtn" type="button" value="開始" onclick="cardStart()">
+        <!--block3 -->
+        <div class="card" id="31" style="top: 325px; left: 58px;" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="32" style="top: 325px; left: 182px" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="33" style="top: 325px; left: 306px;" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="34" style="top: 325px; left: 430px;" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <!--block4-->
+        <div class="card" id="41" style="top: 325px; left: 739px; " ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="42" style="top: 325px; left: 864px " ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="43" style="top: 325px; left: 989px; " ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="card" id="44" style="top: 325px; left: 1114px; " ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+        <div class="startbtn" type="button" onclick="cardStart()">開始</div>
         <div class="timershow" id="timershow">Timer:00:00:00</div>
         <div class="scoreshow">Score:02</div>
-
     </div>
 </body>
 

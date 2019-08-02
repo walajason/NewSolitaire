@@ -37,7 +37,7 @@ $clouds: #ecf0f1;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #C3D8A6;
-    background-image: url("./image/bg-img-main.svg");
+    background-image: url("./../image/bg-img-main.svg");
     text-align: center;
 }
 
@@ -63,7 +63,7 @@ $clouds: #ecf0f1;
     color: #FFFFFF;
 }
 
-.timershow:hover {
+.startbtn:hover {
     cursor: pointer;
 }
 
@@ -91,26 +91,12 @@ $clouds: #ecf0f1;
     height: 270px;
 }
 
-
-.block1 {
+.bk1 {
     position: absolute;
-    width: 494px;
-    height: 140px;
-    top: 155px;
-    left: 58px;
-    // background-color: green;
-    padding: 0px;
-    margin: 0px;
-    text-align: center;
-}
-
-.block1>div {
+    //display: inline-block;
+    background-color: #F7F6F5;
     width: 100px;
     height: 140px;
-    background-color: #F7F6F5;
-    /*background-color: #F7F6F5;*/
-    display: inline-block;
-    margin: 0px 10px;
     padding: 0px;
 }
 
@@ -132,27 +118,15 @@ $clouds: #ecf0f1;
     padding: 0px;
 }
 
-.block3 {
+.bk3 {
     position: absolute;
-    width: 494px;
+    width: 100px;
     height: 140px;
-    top: 325px;
-    left: 58px;
-    // background-color: green;
+    background-color: #F7F6F5;
     display: inline-block;
     padding: 0px;
     margin: 0px;
     text-align: center;
-}
-
-.block3>div {
-    width: 100px;
-    height: 140px;
-    background-color: #F7F6F5;
-    /*background-color: #F7F6F5;*/
-    display: inline-block;
-    margin: 0px 10px;
-    padding: 0px;
 }
 
 .block4 {
@@ -182,11 +156,29 @@ $clouds: #ecf0f1;
     position: absolute;
     width: 100px;
     height: 140px;
-    display: block;
-    margin: 0px 10px;
+    background-color: #F7F6F5;
     padding: 0px;
+    margin: 0px;
+    // text-align: center;
+    // line-height:70px;
+    // vertical-align: middle;
     /*animation-name: cardmove;
     animation-duration: 60s;*/
+}
+
+.imgcard {
+    position: absolute;
+    width: 100px;
+    height: 140px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.img {
+    width: 70px;
+    height: 70px;
+    padding: 0px;
+    margin: 0px;
 }
 
 @keyframes carddmove {
